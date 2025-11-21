@@ -1,1 +1,37 @@
+#include <iostream>
+using namespace std;
 
+struct Student {
+    string name;
+    int marks1, marks2, marks3;
+    float average;
+    char grade;
+};
+
+char calculateGrade(float avg) {
+    if (avg >= 90) return 'A';
+    else if (avg >= 75) return 'B';
+    else if (avg >= 60) return 'C';
+    else if (avg >= 40) return 'D';
+    else return 'F';
+}
+
+int main() {
+    Student s;
+
+    cout << "Enter Student Name: ";
+    cin >> s.name;
+
+    cout << "Enter marks of 3 subjects: ";
+    cin >> s.marks1 >> s.marks2 >> s.marks3;
+
+    s.average = (s.marks1 + s.marks2 + s.marks3) / 3.0;
+    s.grade = calculateGrade(s.average);
+
+    cout << "\n--- Result ---\n";
+    cout << "Name: " << s.name << endl;
+    cout << "Average Marks: " << s.average << endl;
+    cout << "Grade: " << s.grade << endl;
+
+    return 0;
+}
